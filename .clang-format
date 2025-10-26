@@ -1,0 +1,48 @@
+# .clang-format - Vulkan C++ engine recommended base
+# Based on LLVM with engine-friendly tweaks
+BasedOnStyle: LLVM
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+
+ColumnLimit: 120
+Standard: c++20
+
+# Braces: Attach (K&R / same-line) is common in engine code
+BreakBeforeBraces: Attach
+BraceWrapping:
+  AfterClass: false
+  AfterControlStatement: false
+  AfterEnum: false
+  AfterFunction: false
+  AfterNamespace: false
+  BeforeCatch: false
+  BeforeElse: false
+
+# Spaces & parens
+SpaceBeforeParens: ControlStatements   # "if (", "for (", but "foo(bar)"
+AllowShortFunctionsOnASingleLine: InlineOnly
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+
+# Pointer alignment preference -- pick one and be consistent.
+# Left -> `int* p` ; Right -> `int *p`
+PointerAlignment: Left
+DerivePointerAlignment: false
+
+# Alignment & packing: make long parameter lists easier to read
+AlignConsecutiveDeclarations: true
+AlignConsecutiveAssignments: true
+AlignTrailingComments: true
+BinPackParameters: false
+BinPackArguments: false
+
+# Namespaces: many engines prefer no extra indentation
+NamespaceIndentation: None
+IndentCaseLabels: true
+
+# Misc
+ReflowComments: true
+SortIncludes: false           # leave include sorting to include-tool or CI rules
+ConstructorInitializerAllOnOneLineOrOnePerLine: OnePerLine
+AlwaysBreakTemplateDeclarations: false
