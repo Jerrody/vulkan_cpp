@@ -3,9 +3,11 @@ find_package(Vulkan REQUIRED)
 add_library(vkbootstrap STATIC)
 add_library(glm INTERFACE)
 add_library(vma INTERFACE)
+add_library(flecs INTERFACE)
 
 add_library(stb_image INTERFACE)
 
+add_subdirectory(flecs)
 add_subdirectory(fastgltf)
 add_subdirectory(fmt EXCLUDE_FROM_ALL)
 add_subdirectory(SDL EXCLUDE_FROM_ALL)
@@ -34,6 +36,7 @@ target_include_directories(glm INTERFACE glm)
 add_library(imgui STATIC)
 
 target_include_directories(imgui PUBLIC imgui)
+target_link_libraries(flecs INTERFACE flecs::flecs_static)
 
 target_sources(imgui PRIVATE 
   imgui/imgui.h
