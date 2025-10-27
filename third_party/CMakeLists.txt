@@ -3,7 +3,7 @@ find_package(Vulkan REQUIRED)
 add_library(vkbootstrap STATIC)
 add_library(glm INTERFACE)
 add_library(vma INTERFACE)
-add_library(flecs INTERFACE)
+add_library(third_party_deps INTERFACE)
 
 add_library(stb_image INTERFACE)
 
@@ -36,9 +36,9 @@ target_include_directories(glm INTERFACE glm)
 add_library(imgui STATIC)
 
 target_include_directories(imgui PUBLIC imgui)
-target_link_libraries(flecs INTERFACE flecs::flecs_static)
+target_link_libraries(third_party_deps INTERFACE flecs::flecs_static)
 
-target_sources(imgui PRIVATE 
+target_sources(imgui PRIVATE
   imgui/imgui.h
   imgui/imgui.cpp
 
